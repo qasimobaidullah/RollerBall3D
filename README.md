@@ -26,7 +26,7 @@ Gameplay
 Every time you collect 5 coins, you advance to the next level. Once you reach level 5, the game ends, and your total score will be displayed.
 
 Download
-You can play the game on itch.io: [Play Now! | https://rainbow-flamingo.itch.io/3d-roller-ball]
+You can play the game on itch.io: [Play Now!]([http://someurl](https://rainbow-flamingo.itch.io/3d-roller-ball))
 
 Credits
 Developer: Qasim Obaidullah
