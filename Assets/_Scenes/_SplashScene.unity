@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5644a30594f3c42cb851095b84810735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextScene: _MainMenu
+  NextScene: _GamePlay
   PreviousScene: 
   LoadingBar: {fileID: 2690640390942581402}
   loading_Text: {fileID: 2134056956610836260}

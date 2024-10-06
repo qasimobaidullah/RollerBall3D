@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public GameObject levelPausePanel, levelCompletePanel, levelFailedPanel;
+    public GameObject levelPausePanel;
     public string NextScene;
     public string PreviousScene;
 
@@ -16,41 +16,34 @@ public class GameManager : MonoBehaviour
     public Text loading_Text;
     public GameObject loadingPanel;
     public float loadingDelayTime = 2f; 
-    public GameObject[] Levels;
+        public int coinCount = 0;
+    public Text coinText;
 
 public GameObject PlayerObject;
 public GameObject PlayerStartingPosition;
+    public void UpdateCoinUI()
+    {
+        coinText.text = "Coins: " + coinCount;
+    }
     private void Awake() {
                 if(instance==null){
             instance=this;
         }
     }
 
-    public void CheckLevelFailorSuccessfull(bool isFail){
-        if(isFail){
-            levelFailedPanel.SetActive(true);
-            Time.timeScale=0;
 
-        }else{
-            levelCompletePanel.SetActive(true);
-            Time.timeScale=0;
-
-        }
-    }
     // Start is called before the first frame update
     void Start()
     {
             Time.timeScale=1f;
-            Levels[PlayerPrefs.GetInt("SelectedLevel")].gameObject.SetActive(true);
+        UpdateCoinUI();
+
+            //Levels[PlayerPrefs.GetInt("SelectedLevel")].gameObject.SetActive(true);
             PlayerObject.transform.position=PlayerStartingPosition.transform.position;
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public void PauseGame(){
 PlayButtonClickSound();
@@ -74,23 +67,7 @@ PlayButtonClickSound();
 
     }
 
-    public void NextLevel(){
-PlayButtonClickSound();
-        if (SoundManager._SoundManager)
-        {
-            SoundManager._SoundManager.playButtonClickSound();
-        }
-        Time.timeScale = 1f;
-        if (PlayerPrefs.GetInt("SelectedLevel") < Levels.Length - 1)
-        {
-            PlayerPrefs.SetInt("SelectedLevel", PlayerPrefs.GetInt("SelectedLevel") + 1);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        else
-        {
-            HomeGame();
-        }
-    }
+
 
     public void HomeGame(){
 PlayButtonClickSound();
